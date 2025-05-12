@@ -14,17 +14,17 @@ module Agents
       The Protobuf Decoder agent decodes incoming base64-encoded Protobuf messages using specified proto file and message type.
 
       ### Options:
-      `proto_file` - Full path to the .proto file (required)
+      `proto_file` - Full path to the .proto file (required)<br>
       `message_type` - Full name of the Protobuf message type (including package name, e.g. "meshtastic.ServiceEnvelope") (required)<br>
-      `input_key` - Key in the payload containing the base64-encoded Protobuf message (default: 'data')<br>
+      `input_key` - Key in the payload containing the base64-encoded Protobuf message (default: 'payload')<br>
       `output_key` - Key where the decoded message will be stored in the output (default: 'decoded')
 
       ### Example:
       For Meshtastic MQTT messages:
-      - `proto_file`: "/path/to/meshtastic/mqtt.proto"<br>
-      - `message_type`: "meshtastic.ServiceEnvelope"<br>
-      - `input_key`: "payload"<br>
-      - `output_key`: "decoded"
+      `proto_file`: "/path/to/meshtastic/mqtt.proto"<br>
+      `message_type`: "meshtastic.ServiceEnvelope"<br>
+      `input_key`: "payload"<br>
+      `output_key`: "decoded"
     MD
 
     def default_options
@@ -57,10 +57,12 @@ module Agents
     end
 
     def receive(incoming_events)
+      require 'google/protobuf'
+
       interpolate_with_each(incoming_events) do |event|
         proto_file = interpolated['proto_file']
         message_type = interpolated['message_type']
-        input_key = interpolated['input_key'] || 'data'
+        input_key = interpolated['input_key'] || 'payload'
         output_key = interpolated['output_key'] || 'decoded'
 
         # Get the base64-encoded data from the event
