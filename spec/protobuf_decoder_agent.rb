@@ -5,10 +5,10 @@
 require 'rails_helper'
 require 'huginn_agent/spec_helper'
 
-describe Agents::ProtobufDecodeAgent do
+describe Agents::ProtobufDecoderAgent do
   before(:each) do
-    @valid_options = Agents::ProtobufDecodeAgent.new.default_options
-    @checker = Agents::ProtobufDecodeAgent.new(:name => "ProtobufDecodeAgent", :options => @valid_options)
+    @valid_options = Agents::ProtobufDecoderAgent.new.default_options
+    @checker = Agents::ProtobufDecoderAgent.new(:name => "ProtobufDecoderAgent", :options => @valid_options)
     @checker.user = users(:bob)
     @checker.save!
   end

@@ -31,7 +31,7 @@ For Meshtastic MQTT messages:
 - `proto_file`: "/path/to/meshtastic/mqtt.proto"
 - `message_type`: "meshtastic.ServiceEnvelope"
 - `input_key`: "payload"
-- `output_key`: "decoded_message"
+- `output_key`: "decoded"
 
 Input payload:
 ```json
