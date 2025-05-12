@@ -15,23 +15,23 @@ module Agents
 
       ### Options:
       `proto_file` - Full path to the .proto file (required)
-      `message_type` - Full name of the Protobuf message type (including package name, e.g. "meshtastic.ServiceEnvelope") (required)
-      `input_key` - Key in the payload containing the base64-encoded Protobuf message (default: 'data')
+      `message_type` - Full name of the Protobuf message type (including package name, e.g. "meshtastic.ServiceEnvelope") (required)<br>
+      `input_key` - Key in the payload containing the base64-encoded Protobuf message (default: 'data')<br>
       `output_key` - Key where the decoded message will be stored in the output (default: 'decoded')
 
       ### Example:
       For Meshtastic MQTT messages:
-      - `proto_file`: "/path/to/meshtastic/mqtt.proto"
-      - `message_type`: "meshtastic.ServiceEnvelope"
-      - `input_key`: "payload"
+      - `proto_file`: "/path/to/meshtastic/mqtt.proto"<br>
+      - `message_type`: "meshtastic.ServiceEnvelope"<br>
+      - `input_key`: "payload"<br>
       - `output_key`: "decoded"
     MD
 
     def default_options
       {
-        'proto_file' => '/path/to/proto/file.proto',
+        'proto_file' => '/path/to/meshtastic/mqtt.proto',
         'message_type' => 'package.MessageType',
-        'input_key' => 'data',
+        'input_key' => 'payload',
         'output_key' => 'decoded'
       }
     end
