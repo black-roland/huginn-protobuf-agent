@@ -1,0 +1,9 @@
+header:
+  license:
+    spdx-id: MPL-2.0
+
+  paths:
+    - 'lib/**/*.rb'
+    - 'spec/**/*.rb'
+
+  comment: on-failure
