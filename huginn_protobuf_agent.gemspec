@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "huginn_agent"
   spec.add_runtime_dependency "google-protobuf", "~> 4.30"
-  spec.add_runtime_dependency "base64", "~> 0.1"
+  spec.add_runtime_dependency "base64", "~> 0.2"
 end

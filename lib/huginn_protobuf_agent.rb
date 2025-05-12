@@ -4,4 +4,4 @@
 
 require 'huginn_agent'
 
-HuginnAgent.register 'huginn_protobuf_decode_agent/protobuf_decode_agent'
+HuginnAgent.register 'huginn_protobuf_decoder_agent/protobuf_decoder_agent'
